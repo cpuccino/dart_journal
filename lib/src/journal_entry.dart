@@ -1,4 +1,6 @@
-abstract class JournalEntry<T> {
+import 'package:dart_journal/dart_journal.dart';
+
+abstract class JournalEntry<T extends JournalData> {
   final String _type;
   final T _data;
 

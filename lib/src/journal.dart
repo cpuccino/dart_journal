@@ -5,6 +5,8 @@ class Journal {
   String get key => _key;
 
   final List<JournalEntry> _entries;
+  int get length => _entries.length;
+
   int _cursor = -1;
 
   Journal({
@@ -48,5 +50,9 @@ class Journal {
     entry.execute();
 
     _cursor = nextCursor;
+  }
+
+  bool isInitial() {
+    return _cursor == -1;
   }
 }
