@@ -1,0 +1,12 @@
+name: dart_journal
+description: journal package implementation for dart
+version: 0.0.1
+author: cpuccino
+homepage: https://github.com/cpuccino/dart_journal
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dev_dependencies:
+  test: ^1.17.4
+  
