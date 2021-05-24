@@ -24,7 +24,7 @@ main() {
 
     journal.record(JournalEntryMock(data: journalData, payload: 8));
     journal.record(JournalEntryMock(data: journalData, payload: 2));
-    journal.seekPrevious();
+    journal.previous();
 
     expect(journalData.current, 8);
   });
@@ -33,18 +33,19 @@ main() {
     var journal = Journal();
     var journalData = JournalDataMock(seed: 1);
 
-    journal.seekPrevious();
     journal.record(JournalEntryMock(data: journalData, payload: 8));
     expect(journalData.current, 9);
+
     journal.record(JournalEntryMock(data: journalData, payload: 2));
     expect(journalData.current, 11);
 
-    journal.seekPrevious();
+    journal.previous();
     expect(journalData.current, 9);
-    journal.seekPrevious();
+
+    journal.previous();
     expect(journalData.current, 1);
 
-    journal.seekPrevious();
+    journal.previous();
     expect(journalData.current, 1);
   });
 }

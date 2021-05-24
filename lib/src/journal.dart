@@ -33,7 +33,7 @@ class Journal {
     return cursor > -1 && cursor < _entries.length;
   }
 
-  void seekPrevious() {
+  void previous() {
     var currentCursorIndex = _cursor.index;
 
     if (_indexIsValid(currentCursorIndex)) {
@@ -47,7 +47,7 @@ class Journal {
     _cursor.index = previousCursorIndex;
   }
 
-  void seekNext() {
+  void next() {
     var nextCursorIndex = _cursor.index + 1;
     if (!_indexIsValid(nextCursorIndex)) return;
 
