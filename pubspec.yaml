@@ -1,5 +1,5 @@
 name: dart_journal
-description: dart_journal is a history package built with dart that is able to recreate the previous and the current state
+description: Dart journal is a history package built with dart that is able to recreate the previous and the current state
 version: 0.0.1
 author: cpuccino
 homepage: https://github.com/cpuccino/dart_journal
