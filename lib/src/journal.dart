@@ -26,17 +26,17 @@ class Journal {
     _entries.add(entry);
 
     _cursor.index = _entries.length - 1;
-    print('$key: Recording entry [${_cursor}] of type [${entry.type}]');
+    print('$key: Recording entry [${_cursor.index}] of type [${entry.type}]');
   }
 
-  bool _indexIsValid(int cursor) {
+  bool _cursorOutOfBounds(int cursor) {
     return cursor > -1 && cursor < _entries.length;
   }
 
   void previous() {
     var currentCursorIndex = _cursor.index;
 
-    if (_indexIsValid(currentCursorIndex)) {
+    if (_cursorOutOfBounds(currentCursorIndex)) {
       var entry = _entries[currentCursorIndex];
       entry.unexecute();
     }
@@ -49,7 +49,7 @@ class Journal {
 
   void next() {
     var nextCursorIndex = _cursor.index + 1;
-    if (!_indexIsValid(nextCursorIndex)) return;
+    if (!_cursorOutOfBounds(nextCursorIndex)) return;
 
     var entry = _entries[nextCursorIndex];
     entry.execute();
@@ -59,5 +59,9 @@ class Journal {
 
   bool isInitial() {
     return _cursor.index == -1;
+  }
+
+  bool isTerminal() {
+    return _cursor.index == _entries.length - 1;
   }
 }
