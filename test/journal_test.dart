@@ -29,7 +29,7 @@ main() {
     expect(journalData.current, 8);
   });
 
-  test('Journal should ignore jumping to a previous entry when the cursor is at the start', () {
+  test('Journal should ignore jumping to the previous entry when the cursor is at the start', () {
     var journal = Journal();
     var journalData = JournalDataMock(seed: 1);
 
@@ -41,11 +41,32 @@ main() {
 
     journal.previous();
     expect(journalData.current, 9);
+    expect(journal.isInitial(), false);
 
     journal.previous();
     expect(journalData.current, 1);
+    expect(journal.isInitial(), true);
+  });
+
+  test('Journal should ignore jumping to the next entry when the cursor is at the terminal', () {
+    var journal = Journal();
+    var journalData = JournalDataMock(seed: 1);
+
+    journal.record(JournalEntryMock(data: journalData, payload: 8));
+    expect(journalData.current, 9);
+
+    journal.record(JournalEntryMock(data: journalData, payload: 2));
+    expect(journalData.current, 11);
+
+    journal.next();
+    expect(journalData.current, 11);
+    expect(journal.isTerminal(), true);
 
     journal.previous();
-    expect(journalData.current, 1);
+    expect(journalData.current, 9);
+
+    journal.next();
+    expect(journalData.current, 11);
+    expect(journal.isTerminal(), true);
   });
 }
