@@ -3,6 +3,7 @@ description: Dart journal is a history package built with dart that is able to r
 version: 0.0.1
 author: cpuccino
 homepage: https://github.com/cpuccino/dart_journal
+publish_to: none
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
