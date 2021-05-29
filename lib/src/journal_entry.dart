@@ -10,7 +10,7 @@ abstract class JournalEntry<T extends JournalData> {
   JournalEntry({
     String type = 'Default',
     required T data,
-  })   : _type = type,
+  })  : _type = type,
         _data = data;
 
   void execute();
