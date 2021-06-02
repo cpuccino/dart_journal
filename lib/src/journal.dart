@@ -9,7 +9,7 @@ class Journal {
   final List<JournalEntry> _entries;
   int get length => _entries.length;
 
-  JournalCursor _cursor;
+  final JournalCursor _cursor;
 
   Journal({
     String key = '_default',

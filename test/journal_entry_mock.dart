@@ -2,8 +2,8 @@ import 'package:dart_journal/dart_journal.dart';
 
 import 'journal_data_mock.dart';
 
-class JournalEntryMock extends JournalEntry<JournalDataMock> {
-  int _payload;
+class JournalEntryMock extends JournalEntry<JournalDataMock, int> {
+  final int _payload;
 
   JournalEntryMock({
     required JournalDataMock data,

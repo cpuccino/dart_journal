@@ -6,7 +6,7 @@ import 'package:dart_journal/dart_journal.dart';
 import 'journal_data_mock.dart';
 import 'journal_entry_mock.dart';
 
-main() {
+void main() {
   test('Journal should reflect recorded entry updates', () {
     var journal = Journal();
     var journalData = JournalDataMock(seed: 0);
